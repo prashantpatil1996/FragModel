@@ -9,6 +9,7 @@ import android.widget.Toast;
 
 import com.celusion.fragmodel.R;
 import com.celusion.fragmodel.databinding.LoginFragmentBinding;
+import com.celusion.fragmodel.viewmodel.LoginViewModel;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -16,13 +17,12 @@ import androidx.databinding.BindingAdapter;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 
-public class Login extends Fragment {
-    public static final String TAG = Login.class.getSimpleName();
-    private LoginViewModel mViewModel;
+public class LoginFragment extends Fragment {
+    public static final String TAG = LoginFragment.class.getSimpleName();
     LoginFragmentBinding loginFragmentBinding;
 
-    public static Login newInstance() {
-        return new Login();
+    public static LoginFragment newInstance() {
+        return new LoginFragment();
     }
 
     @Override

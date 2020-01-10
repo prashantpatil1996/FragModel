@@ -1,4 +1,4 @@
-package com.celusion.fragmodel.fragment;
+package com.celusion.fragmodel.viewmodel;
 
 import android.text.TextUtils;
 import android.util.Patterns;
@@ -13,7 +13,7 @@ public class LoginViewModel extends BaseObservable {
     private User user;
 
 
-    private String successMessage = "Login was successful";
+    private String successMessage = "LoginFragment was successful";
     private String errorMessage = "Email or Password not valid";
 
     @Bindable
