@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.celusion.fragmodel.R;
 import com.celusion.fragmodel.databinding.LogFragmentBinding;
@@ -22,12 +23,6 @@ public class LogFragment extends Fragment {
     LogFragmentBinding logFragmentBinding;
     LogViewModel logViewModel;
 
-
-
-    public static LogFragment newInstance() {
-        return new LogFragment();
-    }
-
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         return inflater.inflate(R.layout.log_fragment, container, false);
@@ -38,7 +33,7 @@ public class LogFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
         logFragmentBinding = DataBindingUtil.setContentView((Activity) getContext(), R.layout.log_fragment);
         logViewModel = ViewModelProviders.of(this).get(LogViewModel.class);
-        logFragmentBinding.setViewModel(logViewModel);
+        logFragmentBinding.setItem(logViewModel);
         setListener();
     }
 
@@ -46,7 +41,9 @@ public class LogFragment extends Fragment {
         logFragmentBinding.login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                logViewModel.isValid.set(false);
+                if(logViewModel.isValid.get()) {
+                    Toast.makeText(getActivity(), "Successfully Submitted", Toast.LENGTH_LONG).show();
+                }
             }
         });
     }

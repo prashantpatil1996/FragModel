@@ -2,8 +2,9 @@
     xmlns:bind="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
+        <import type="android.view.View" />
         <variable
-            name="viewModel"
+            name="item"
             type="com.celusion.fragmodel.viewmodel.LogViewModel">
         </variable>
     </data>
@@ -23,7 +24,7 @@
             android:hint="Email"
             android:inputType="textEmailAddress"
             android:padding="8dp"
-            android:text="@={viewModel.userEmail}" />
+            android:text="@={item.userEmail}" />
 
 
         <EditText
@@ -33,7 +34,7 @@
             android:hint="Password"
             android:inputType="textPassword"
             android:padding="8dp"
-            android:text="@={viewModel.userPassword}" />
+            android:text="@={item.userPassword}" />
 
 
         <Button
@@ -41,20 +42,20 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:enabled="@{viewModel.isValid.get()}"
+            android:enabled="@{item.isValid}"
             android:text="LOGIN"
            />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@{viewModel.userEmail}">
+            android:text="@{item.userEmail}">
         </TextView>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@{viewModel.userPassword}">
+            android:text="@{item.userPassword}">
         </TextView>
 <!--        <com.google.android.material.floatingactionbutton.FloatingActionButton-->
 <!--            android:id="@+id/fab"-->
